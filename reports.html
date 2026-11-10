@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semua Laporan | E-Report IDN</title>
+    <link rel="shortcut icon" href="./assets/img/idn.png" type="image/x-icon">
+
+    <!-- Css bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- cdn fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+        integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- My css -->
+    <link rel="stylesheet" href="./assets/style.css">
+
+    <!-- Js bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg sticky-top bg-white py-3 guide-navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="./assets/img/idn.png" alt="Logo E-Report IDN" width="30"
+                    class="d-inline-block align-text-top rounded">
+                <span class="fw-bold text-primary-emphasis">IDN E-Report</span>
+            </a>
+            <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Buka navigasi">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-4 pt-4 pt-lg-0">
+                    <li class="nav-item"><a class="nav-link text-primary" href="index.html#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-primary" href="index.html#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link text-primary" href="index.html#Services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link text-primary" href="reports.html">Recent</a></li>
+                    <li class="nav-item"><a class="nav-link text-primary" href="index.html#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link text-primary active" aria-current="page"
+                            href="panduan.html">Panduan</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- semua laporan -->
+    <section id="reports" class="py-5">
+        <!-- SATU container membungkus judul, filter, kartu, dan pagination -->
+        <div class="container">
+
+            <!-- judul -->
+            <div class="row align-items-center g-3 mb-5">
+                <div class="col-12 col-lg-10">
+                    <h1 class="fw-bold text-primary-emphasis">Semua laporan</h1>
+                    <p class="text-secondary lh-lg mb-0">Lihat seluruh laporan akademik, keamanan, dan fasilitas yang masuk
+                        ke sekolah. Gunakan pencarian dan filter untuk menemukan laporan yang kamu butuhkan.</p>
+                </div>
+                <div class="col-12 col-lg-2 mt-lg-2">
+                    <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal"
+                        data-bs-target="#createReportModal">
+                        <i class="fa-solid fa-plus"></i>
+                        Tambah Laporan
+                    </button>
+                </div>
+            </div>
+
+            <!-- filter -->
+            <form class="row g-3 mb-5">
+                <div class="col-12 col-md-4">
+                    <input type="text" class="form-control" placeholder="Cari laporan..." aria-label="Cari laporan">
+                </div>
+                <div class="col-6 col-md">
+                    <select class="form-select" aria-label="Pilih kategori">
+                        <option selected>Semua kategori</option>
+                        <option value="akademik">Akademik</option>
+                        <option value="keamanan">Keamanan</option>
+                        <option value="fasilitas">Fasilitas</option>
+                    </select>
+                </div>
+                <div class="col-6 col-md">
+                    <select class="form-select" aria-label="Urutkan">
+                        <option value="terbaru" selected>Terbaru</option>
+                        <option value="terlama">Terlama</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-2">
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="fa-solid fa-filter"></i>
+                        Filter
+                    </button>
+                </div>
+            </form>
+
+            <!-- daftar kartu -->
+            <div class="row g-4">
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="card border-0 shadow-sm h-100 report-card">
+                        <div class="position-relative">
+                            <div class="ratio ratio-16x9">
+                                <img src="./assets/img/kelas.png" class="card-img-top object-fit-cover"
+                                    alt="Kelas dengan tumpukan buku berdebu">
+                            </div>
+                        </div>
+                        <div class="card-body d-flex flex-column gap-2">
+                            <h5 class="card-title mb-1">Laporan Kelas Kotor</h5>
+                            <p class="mb-2 text-muted small">by: <a class="text-decoration-none" href="#">Ariq Fathi</a> • 2 hari lalu</p>
+                            <p class="card-text">Kondisi kelas yang tidak terawat dengan tumpukan buku berdebu dan kursi yang berantakan, mengganggu kenyamanan belajar siswa.</p>
+                            <a href="detail-report.html" class="btn btn-primary mt-auto">Selengkapnya</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="card border-0 shadow-sm h-100 report-card">
+                        <div class="position-relative">
+                            <div class="ratio ratio-16x9">
+                                <img src="./assets/img/pencrui.png" class="card-img-top object-fit-cover"
+                                    alt="Pelaku pencurian yang diamankan">
+                            </div>
+                        </div>
+                        <div class="card-body d-flex flex-column gap-2">
+                            <h5 class="card-title mb-1">Laporan Pencurian</h5>
+                            <p class="mb-2 text-muted small">by: <a class="text-decoration-none" href="#">Police</a> • 6 hari lalu</p>
+                            <p class="card-text">Kasus pencurian yang berhasil diungkap pihak berwajib. Empat pelaku telah diamankan dan proses hukum sedang berjalan.</p>
+                            <a href="detail-report.html" class="btn btn-primary mt-auto">Selengkapnya</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="card border-0 shadow-sm h-100 report-card">
+                        <div class="position-relative">
+                            <div class="ratio ratio-16x9">
+                                <img src="./assets/img/rusak.png" class="card-img-top object-fit-cover"
+                                    alt="Maling di sekolah">
+                            </div>
+                        </div>
+                        <div class="card-body d-flex flex-column gap-2">
+                            <h5 class="card-title mb-1">Laporan Labkom Rusak</h5>
+                            <p class="mb-2 text-muted small">by: <a class="text-decoration-none" href="#">Dimas Pratama</a> • 10 hari lalu</p>
+                            <p class="card-text">Sejumlah unit komputer di laboratorium dilaporkan rusak dan tidak dapat digunakan, sehingga menghambat kegiatan praktikum siswa.</p>
+                            <a href="detail-report.html" class="btn btn-primary mt-auto">Selengkapnya</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="card border-0 shadow-sm h-100 report-card">
+                        <div class="position-relative">
+                            <div class="ratio ratio-16x9">
+                                <img src="./assets/img/gbsdbaca.png" class="card-img-top object-fit-cover"
+                                    alt="Ruang kelas">
+                            </div>
+                        </div>
+                        <div class="card-body d-flex flex-column gap-2">
+                            <h5 class="card-title mb-1">Laporan Papan Tulis Sulit Dibaca</h5>
+                            <p class="mb-2 text-muted small">by: <a class="text-decoration-none" href="#">Ariq Fathi</a> • 12 hari lalu</p>
+                            <p class="card-text">Papan tulis di kelas XI sudah buram dan penuh bekas tulisan lama, sehingga materi dari guru sulit terbaca dari bangku belakang.</p>
+                            <a href="detail-report.html" class="btn btn-primary mt-auto">Selengkapnya</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="card border-0 shadow-sm h-100 report-card">
+                        <div class="position-relative">
+                            <div class="ratio ratio-16x9">
+                                <img src="./assets/img/labkom.png" class="card-img-top object-fit-cover"
+                                    alt="Laboratorium komputer">
+                            </div>
+                        </div>
+                        <div class="card-body d-flex flex-column gap-2">
+                            <h5 class="card-title mb-1">Laporan AC Labkom Tidak Dingin</h5>
+                            <p class="mb-2 text-muted small">by: <a class="text-decoration-none" href="#">Dimas Pratama</a> • 2 minggu lalu</p>
+                            <p class="card-text">AC di laboratorium komputer tidak berfungsi sejak awal bulan. Ruangan menjadi panas dan komputer berisiko cepat rusak.</p>
+                            <a href="detail-report.html" class="btn btn-primary mt-auto">Selengkapnya</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="card border-0 shadow-sm h-100 report-card">
+                        <div class="position-relative">
+                            <div class="ratio ratio-16x9">
+                                <img src="./assets/img/maling.png" class="card-img-top object-fit-cover"
+                                    alt="Barang hilang">
+                            </div>
+                        </div>
+                        <div class="card-body d-flex flex-column gap-2">
+                            <h5 class="card-title mb-1">Laporan Barang Hilang di Kelas</h5>
+                            <p class="mb-2 text-muted small">by: <a class="text-decoration-none" href="#">Police</a> • 3 minggu lalu</p>
+                            <p class="card-text">Beberapa siswa kehilangan barang pribadi saat jam istirahat. Pihak sekolah meminta saksi untuk memberikan keterangan.</p>
+                            <a href="detail-report.html" class="btn btn-primary mt-auto">Selengkapnya</a>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+
+            <!-- pagination -->
+            <nav aria-label="Navigasi halaman">
+                <ul class="pagination justify-content-center mt-5 mb-0">
+                    <li class="page-item disabled"><a class="page-link" href="#">Sebelumnya</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Berikutnya</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </section>
+
+    <!-- modal tambah laporan -->
+    <div class="modal fade" id="createReportModal" tabindex="-1" aria-labelledby="createReportModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white fw-semibold">
+                    <h2 class="modal-title fs-5" id="createReportModalLabel">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                        Formulir tambah laporan
+                    </h2>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Tutup"></button>
+                </div>
+                <form action="">
+                    <div class="modal-body p-4 p-md-5">
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold" for="reportTitle">Judul laporan:</label>
+                            <input class="form-control shadow-sm" type="text" id="reportTitle" name="title"
+                                placeholder="Tulis judul..." required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold" for="reportCategory">Pilih kategori:</label>
+                            <select class="form-select shadow-sm" id="reportCategory" name="category" required>
+                                <option value="" selected disabled>Pilih kategori...</option>
+                                <option value="akademik">Akademik</option>
+                                <option value="fasilitas">Fasilitas</option>
+                                <option value="anonymous">Anonymous</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold" for="reportDescription">Isi laporan:</label>
+                            <textarea rows="6" class="form-control shadow-sm" id="reportDescription"
+                                name="description" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold" for="reportImage">Unggah gambar:</label>
+                            <input class="form-control shadow-sm" type="file" id="reportImage" name="image"
+                                accept="image/*">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Kirim laporan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <img src="./assets/img/idn.png" alt="Logo" width="32" class="rounded">
+              <span class="fw-bold text-white">E-Report IDN</span>
+            </div>
+            <p class="text-white-50 mb-0">
+              Platform pengaduan digital untuk membantu siswa dan civitas akademik menyampaikan laporan dengan cepat, aman, dan terdokumentasi.
+            </p>
+          </div>
+
+          <div class="col-md-4 col-lg-2">
+            <h5 class="fw-semibold text-white mb-3">Menu</h5>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#hero">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#Services">Services</a></li>
+              <li><a href="#recent">Recents</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-4 col-lg-3">
+            <h5 class="fw-semibold text-white mb-3">Kontak</h5>
+            <ul class="list-unstyled footer-links footer-contact">
+              <li><i class="fa-solid fa-location-dot"></i> Jl.Taman Yasmin</li>
+              <li><i class="fa-solid fa-envelope"></i> <a href="mailto:damarja45@gmail.com" class="text-white">damarja45@gmail.com</a></li>
+              <li><i class="fa-solid fa-phone"></i> <a href="tel:+6285717264285" class="text-white">+62 857-1726-4285</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <p class="mb-0">© 2026 E-Report IDN. All rights reserved.</p>
+            <div class="d-flex gap-3 mt-3 mt-md-0 social-icons">
+              <a href="https://www.instagram.com/damarrmwlnaa/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>
+
+</html>

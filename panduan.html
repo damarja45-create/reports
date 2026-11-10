@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panduan langkah demi langkah untuk membuat laporan di E-Report IDN.">
+    <title>Panduan Membuat Laporan | E-Report IDN</title>
+    <link rel="shortcut icon" href="./assets/img/idn.png" type="image/x-icon">
+
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <!-- CSS utama -->
+    <link rel="stylesheet" href="./assets/style.css">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 5rem;
+        }
+
+        .guide-page {
+            background: #f7faff;
+        }
+
+        .guide-navbar {
+            box-shadow: 0 4px 24px rgba(20, 67, 130, 0.06);
+        }
+
+        .guide-hero {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            padding: 5.5rem 0;
+            background: linear-gradient(125deg, #eff6ff 0%, #f8fbff 52%, #e8f1ff 100%);
+        }
+
+        .guide-hero::before,
+        .guide-hero::after {
+            position: absolute;
+            z-index: -1;
+            content: "";
+            border-radius: 50%;
+            background: rgba(13, 110, 253, 0.07);
+        }
+
+        .guide-hero::before {
+            top: -180px;
+            right: -80px;
+            width: 430px;
+            height: 430px;
+        }
+
+        .guide-hero::after {
+            bottom: -240px;
+            left: 30%;
+            width: 420px;
+            height: 420px;
+        }
+
+        .guide-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.55rem 0.9rem;
+            border: 1px solid rgba(13, 110, 253, 0.14);
+            border-radius: 999px;
+            background: #fff;
+            color: #0d6efd;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+        }
+
+        .guide-hero h1 {
+            max-width: 700px;
+            font-size: clamp(2.5rem, 5vw, 4.1rem);
+            letter-spacing: -0.055em;
+            line-height: 1.08;
+        }
+
+        .guide-hero-copy {
+            max-width: 590px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .guide-hero-art {
+            position: relative;
+            display: grid;
+            min-height: 290px;
+            place-items: center;
+        }
+
+        .guide-art-circle {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border: 1px solid rgba(13, 110, 253, 0.15);
+            border-radius: 50%;
+        }
+
+        .guide-art-card {
+            position: relative;
+            width: min(100%, 300px);
+            padding: 1.5rem;
+            border: 1px solid rgba(13, 110, 253, 0.1);
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 24px 60px rgba(31, 78, 140, 0.14);
+            transform: rotate(3deg);
+        }
+
+        .guide-art-line {
+            height: 9px;
+            margin-top: 0.8rem;
+            border-radius: 99px;
+            background: #e8eef7;
+        }
+
+        .guide-art-line.short {
+            width: 62%;
+        }
+
+        .guide-section {
+            padding: 5rem 0;
+        }
+
+        .guide-section-heading {
+            max-width: 650px;
+        }
+
+        .guide-step-card {
+            position: relative;
+            height: 100%;
+            padding: 1.7rem;
+            overflow: hidden;
+            border: 1px solid #e8eef7;
+            border-radius: 22px;
+            background: #fff;
+            box-shadow: 0 10px 35px rgba(31, 78, 140, 0.06);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .guide-step-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(13, 110, 253, 0.25);
+            box-shadow: 0 18px 42px rgba(31, 78, 140, 0.12);
+        }
+
+        .guide-step-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.8rem;
+        }
+
+        .guide-step-icon {
+            display: grid;
+            width: 54px;
+            height: 54px;
+            place-items: center;
+            border-radius: 17px;
+            background: #edf4ff;
+            color: #0d6efd;
+            font-size: 1.25rem;
+        }
+
+        .guide-step-number {
+            color: #dce8f8;
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .guide-step-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .guide-step-card p {
+            margin-bottom: 0;
+            color: #68778b;
+            line-height: 1.75;
+        }
+
+        .guide-tip-card {
+            height: 100%;
+            padding: 2rem;
+            border: 1px solid #e7eef8;
+            border-radius: 24px;
+            background: #fff;
+            box-shadow: 0 10px 35px rgba(31, 78, 140, 0.06);
+        }
+
+        .guide-tip-list {
+            display: grid;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .guide-tip-list li {
+            display: flex;
+            gap: 0.75rem;
+            color: #536276;
+            line-height: 1.65;
+        }
+
+        .guide-tip-list i {
+            margin-top: 0.25rem;
+            color: #198754;
+        }
+
+        .guide-cta {
+            position: relative;
+            height: 100%;
+            padding: 2rem;
+            overflow: hidden;
+            border-radius: 24px;
+            background: linear-gradient(140deg, #0d6efd, #0849b8);
+            color: #fff;
+        }
+
+        .guide-cta::after {
+            position: absolute;
+            right: -45px;
+            bottom: -90px;
+            width: 220px;
+            height: 220px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            content: "";
+        }
+
+        .guide-cta p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+
+        .guide-cta .btn {
+            position: relative;
+            z-index: 1;
+            border: 0;
+            background: #fff;
+            color: #0d6efd;
+            font-weight: 700;
+        }
+
+        @media (max-width: 767.98px) {
+            .guide-hero {
+                padding: 4rem 0 3rem;
+            }
+
+            .guide-hero-art {
+                min-height: 230px;
+            }
+
+            .guide-art-circle {
+                width: 200px;
+                height: 200px;
+            }
+
+            .guide-section {
+                padding: 3.5rem 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .guide-page *,
+            .guide-page *::before,
+            .guide-page *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+        integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- JavaScript Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="guide-page">
+    <nav class="navbar navbar-expand-lg sticky-top bg-white py-3 guide-navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="./assets/img/idn.png" alt="Logo E-Report IDN" width="30"
+                    class="d-inline-block align-text-top rounded">
+                <span class="fw-bold text-primary-emphasis">IDN E-Report</span>
+            </a>
+            <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Buka navigasi">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-4 pt-4 pt-lg-0">
+                    <li class="nav-item"><a class="nav-link text-primary" href="index.html#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-primary" href="index.html#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link text-primary" href="index.html#Services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link text-primary" href="reports.html">Recent</a></li>
+                    <li class="nav-item"><a class="nav-link text-primary" href="index.html#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link text-primary active" aria-current="page"
+                            href="#langkah-langkah">Panduan</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="guide-hero">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7 animate__animated animate__fadeInUp">
+                        <span class="guide-eyebrow mb-4">
+                            <i class="fa-solid fa-compass"></i>PANDUAN E-REPORT
+                        </span>
+                        <h1 class="fw-bold text-primary-emphasis mt-3">Satu laporan kecil,<br><span class="text-primary">perubahan besar.</span></h1>
+                        <p class="guide-hero-copy text-secondary mt-4 mb-4">
+                            Gimana cara buat laporan? Gampang, kok. Ikuti langkah singkat ini untuk menyampaikan
+                            masalah dengan jelas dan membantu tim kami menindaklanjutinya.
+                        </p>
+                        <a href="#langkah-langkah" class="btn btn-primary btn-lg rounded-pill px-4 shadow-sm">
+                            <i class="fa-solid fa-list-ol me-2"></i>Lihat Langkah-Langkah
+                        </a>
+                        <a href="reports.html" class="btn btn-outline-primary btn-lg rounded-pill px-4 ms-sm-2 mt-2 mt-sm-0">
+                            Buat Laporan<i class="fa-solid fa-arrow-right ms-2"></i>
+                        </a>
+                        <div class="d-flex flex-wrap gap-4 mt-4 text-secondary small">
+                            <span><i class="fa-solid fa-list-check text-primary me-2"></i>5 langkah mudah</span>
+                            <span><i class="fa-solid fa-clock text-primary me-2"></i>Hanya beberapa menit</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 d-none d-md-block animate__animated animate__fadeIn">
+                        <div class="guide-hero-art" aria-hidden="true">
+                            <div class="guide-art-circle animate__animated animate__pulse animate__infinite animate__slower"></div>
+                            <div class="guide-art-card">
+                                <div class="d-flex align-items-center gap-3 mb-4">
+                                    <div class="guide-step-icon"><i class="fa-solid fa-file-circle-check"></i></div>
+                                    <div>
+                                        <span class="d-block fw-bold text-primary-emphasis">Laporan baru</span>
+                                        <span class="small text-secondary">Siap untuk ditindaklanjuti</span>
+                                    </div>
+                                </div>
+                                <span class="small fw-semibold text-primary-emphasis">Judul laporan</span>
+                                <div class="guide-art-line"></div>
+                                <div class="guide-art-line short"></div>
+                                <div class="d-flex justify-content-between align-items-center mt-4">
+                                    <span class="badge rounded-pill text-bg-primary-subtle text-primary">Fasilitas</span>
+                                    <i class="fa-solid fa-circle-check text-success fs-4"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="guide-section" id="langkah-langkah">
+            <div class="container">
+                <div class="guide-section-heading text-center mx-auto mb-5 animate__animated animate__fadeInUp">
+                    <span class="text-primary fw-bold small text-uppercase">Proses pelaporan</span>
+                    <h2 class="display-6 fw-bold text-primary-emphasis mt-2">Langkah-langkah membuat laporan</h2>
+                    <p class="text-secondary mb-0">Ikuti lima langkah ini langsung dari halaman Semua Laporan.</p>
+                </div>
+
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-5 g-4">
+                    <div class="col animate__animated animate__fadeInUp">
+                        <article class="guide-step-card">
+                            <div class="guide-step-top">
+                                <span class="guide-step-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                                <span class="guide-step-number">01</span>
+                            </div>
+                            <span class="d-block text-primary fw-bold small mb-2">LANGKAH 1</span>
+                            <h3 class="text-primary-emphasis">Buka Semua Laporan</h3>
+                            <p>Klik tombol <strong>Buat Laporan</strong> di bagian atas. Di halaman Semua Laporan, klik <strong>Tambah Laporan</strong> untuk membuka formulir.</p>
+                        </article>
+                    </div>
+                    <div class="col animate__animated animate__fadeInUp">
+                        <article class="guide-step-card">
+                            <div class="guide-step-top">
+                                <span class="guide-step-icon"><i class="fa-solid fa-heading"></i></span>
+                                <span class="guide-step-number">02</span>
+                            </div>
+                            <span class="d-block text-primary fw-bold small mb-2">LANGKAH 2</span>
+                            <h3 class="text-primary-emphasis">Tulis judul laporan</h3>
+                            <p>Isi kolom <strong>Judul laporan</strong> dengan ringkas dan spesifik. Contoh: “Kipas angin kelas XI rusak”.</p>
+                        </article>
+                    </div>
+                    <div class="col animate__animated animate__fadeInUp">
+                        <article class="guide-step-card">
+                            <div class="guide-step-top">
+                                <span class="guide-step-icon"><i class="fa-solid fa-layer-group"></i></span>
+                                <span class="guide-step-number">03</span>
+                            </div>
+                            <span class="d-block text-primary fw-bold small mb-2">LANGKAH 3</span>
+                            <h3 class="text-primary-emphasis">Pilih kategori</h3>
+                            <p>Pilih <strong>Akademik</strong> untuk masalah belajar, <strong>Fasilitas</strong> untuk sarana, atau <strong>Anonymous</strong> jika ingin melapor anonim.</p>
+                        </article>
+                    </div>
+                    <div class="col animate__animated animate__fadeInUp">
+                        <article class="guide-step-card">
+                            <div class="guide-step-top">
+                                <span class="guide-step-icon"><i class="fa-solid fa-align-left"></i></span>
+                                <span class="guide-step-number">04</span>
+                            </div>
+                            <span class="d-block text-primary fw-bold small mb-2">LANGKAH 4</span>
+                            <h3 class="text-primary-emphasis">Ceritakan kejadian</h3>
+                            <p>Isi kolom <strong>Isi laporan</strong>: tulis apa yang terjadi, kapan, dan di mana. Unggah foto pendukung jika ada.</p>
+                        </article>
+                    </div>
+                    <div class="col animate__animated animate__fadeInUp">
+                        <article class="guide-step-card">
+                            <div class="guide-step-top">
+                                <span class="guide-step-icon"><i class="fa-solid fa-paper-plane"></i></span>
+                                <span class="guide-step-number">05</span>
+                            </div>
+                            <span class="d-block text-primary fw-bold small mb-2">LANGKAH 5</span>
+                            <h3 class="text-primary-emphasis">Periksa lalu kirim</h3>
+                            <p>Pastikan judul, kategori, dan isi sudah benar. Terakhir, klik <strong>Kirim laporan</strong>.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="row g-4 mt-4 align-items-stretch">
+                    <div class="col-lg-7 animate__animated animate__fadeInLeft">
+                        <div class="guide-tip-card">
+                            <span class="guide-step-icon mb-3"><i class="fa-regular fa-lightbulb"></i></span>
+                            <h2 class="h4 fw-bold text-primary-emphasis mb-4">Tips agar laporanmu mudah dipahami</h2>
+                            <ul class="guide-tip-list">
+                                <li><i class="fa-solid fa-circle-check"></i><span>Sertakan waktu dan lokasi kejadian jika diketahui.</span></li>
+                                <li><i class="fa-solid fa-circle-check"></i><span>Jelaskan apa yang terjadi secara faktual dan gunakan bahasa yang sopan.</span></li>
+                                <li><i class="fa-solid fa-circle-check"></i><span>Fokus pada masalah dan informasi yang relevan.</span></li>
+                                <li><i class="fa-solid fa-circle-check"></i><span>Jangan unggah foto yang berisi data pribadi atau tidak berkaitan.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 animate__animated animate__fadeInRight">
+                        <div class="guide-cta">
+                            <span class="badge rounded-pill bg-white bg-opacity-25 mb-3">Siap menyampaikan laporan?</span>
+                            <h2 class="h3 fw-bold mb-3">Suaramu membantu membuat lingkungan lebih baik.</h2>
+                            <p>Isi judul, kategori, dan cerita kejadian. Tambahkan gambar kalau ada bukti pendukung.</p>
+                            <a href="reports.html" class="btn rounded-pill px-4 mt-2">
+                                Mulai Buat Laporan<i class="fa-solid fa-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <img src="./assets/img/idn.png" alt="Logo E-Report IDN" width="32" class="rounded">
+                        <span class="fw-bold text-white">E-Report IDN</span>
+                    </div>
+                    <p class="text-white-50 mb-0">
+                        Platform pengaduan digital untuk membantu siswa dan civitas akademik menyampaikan laporan
+                        dengan cepat, aman, dan terdokumentasi.
+                    </p>
+                </div>
+
+                <div class="col-md-4 col-lg-2">
+                    <h2 class="h5 fw-semibold text-white mb-3">Menu</h2>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html#hero">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#Services">Services</a></li>
+                        <li><a href="reports.html">Laporan</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 col-lg-3">
+                    <h2 class="h5 fw-semibold text-white mb-3">Kontak</h2>
+                    <ul class="list-unstyled footer-links footer-contact">
+                        <li><i class="fa-solid fa-location-dot"></i> Jl. Taman Yasmin</li>
+                        <li><i class="fa-solid fa-envelope"></i> <a href="mailto:damarja45@gmail.com"
+                                class="text-white">damarja45@gmail.com</a></li>
+                        <li><i class="fa-solid fa-phone"></i> <a href="tel:+6285717264285" class="text-white">+62
+                                857-1726-4285</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                    <p class="mb-0">© 2026 E-Report IDN. All rights reserved.</p>
+                    <div class="d-flex gap-3 mt-3 mt-md-0 social-icons">
+                        <a href="https://www.instagram.com/damarrmwlnaa/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
